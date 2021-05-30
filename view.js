@@ -5,7 +5,7 @@ const inquirer = require('inquirer')
 function getTitle(){
     return chalk.cyanBright(
         figlet.textSync(
-            'Unit Converter App',
+            'Weather App',
             {
                 horizontalLayout: 'full',
                 font: 'digital',
