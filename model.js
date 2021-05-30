@@ -1,5 +1,5 @@
 initModel = {
-    name: 0,
+    name: [0, 1],
     temp: 0,
     max: 0,
     min: 0
