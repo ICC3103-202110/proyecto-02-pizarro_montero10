@@ -17,17 +17,17 @@ function getTitle(){
 
 function getTable(model){
     
-    const {name} = model
+    const {name_city} = model
     const {temp} = model
     const {max} = model
     const {min} = model
     
     return [
         {
-            'name': name,
-            'temp': temp,
-            'max': max,
-            'min': min
+            'Name': name_city,
+            'Temp': temp,
+            'Max': max,
+            'Min': min
         }
     ]
 }
@@ -44,7 +44,8 @@ function getAction(){
         ])
 }
 
-function Action(action){
+function Action(action, model){
+    const {name_city} = model 
     if (action === 'Add City'){
         return inquirer.prompt([
             {
@@ -56,11 +57,27 @@ function Action(action){
     }
 
     else if (action === 'Update City'){
-        return 0
+        return inquirer.prompt([
+            {
+                type: 'list',
+                message: 'Choose City:',
+                name: 'update',
+                choices: name_city,
+            }
+        ])
     }
 
     else if (action === 'Delete City'){
-        return 0
+        return inquierer.prompt([
+            {
+                type: 'list',
+                message: 'Choose City:',
+                name: 'delete',
+                choices: name_city,
+
+
+            }
+        ])
     }
 }
 
