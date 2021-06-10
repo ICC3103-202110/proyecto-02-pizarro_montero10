@@ -8,12 +8,11 @@ function update(input, model){
     const {max} = input
     const {Min} = input
     var {conversion} = 0
-        return {
-            ...model,
-            new_leftvalue: conversion,
-            new_leftunit:to,
-            new_rightvalue: temp,
-            new_rightunit: from,
-        }
+    return {
+        ...model,
+        new_leftvalue: conversion,
+        new_leftunit:to,
+        new_rightvalue: temp,
+        new_rightunit: from,
     }
 }

@@ -84,4 +84,9 @@ function Action(action, model){
 const {printTable} = require('console-table-printer')
 const {initModel} = require('./model')
 
+/*
+action = getAction()
+act = Action(action, initModel)
+console.log(action)
+*/
 printTable(getTable(initModel))
