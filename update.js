@@ -2,12 +2,21 @@ function addCity(input, model){
     
 }
 
+function updateCity(input, model){
+    
+}
+
+function deleteCity(input, model){
+    
+}
+
+
 function update(input, model){
     const {name_city} = model
     const {temp} = input
     const {max} = input
-    const {Min} = input
-    var {conversion} = 0
+    const {min} = input
+
     return {
         ...model,
         new_leftvalue: conversion,

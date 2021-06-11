@@ -8,8 +8,8 @@ function getTitle(){
             'Weather App',
             {
                 horizontalLayout: 'full',
-                font: 'digital',
-                width: 80
+                font: 'digital'/*'Dancing Font'*/,
+                width: 120
             }
         )
     )
@@ -49,7 +49,7 @@ function Action(action, model){
     if (action === 'Add City'){
         return inquirer.prompt([
             {
-                type: 'Input',
+                type: 'input',
                 message: 'Location?',
                 name: 'location',
             }
@@ -89,4 +89,12 @@ action = getAction()
 act = Action(action, initModel)
 console.log(action)
 */
+
+module.exports = {
+    getTitle,
+    getTable,
+    getAction,
+    Action
+}
+console.log(getTitle())
 printTable(getTable(initModel))
