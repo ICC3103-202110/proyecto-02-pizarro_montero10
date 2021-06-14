@@ -1,4 +1,4 @@
-const {inputForm, listForm, Action} = require('./view')
+const {view, Action} = require('./view')
 const {printTable} = require('console-table-printer')
 
 async function app(state, update, view){

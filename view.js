@@ -1,6 +1,7 @@
 const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
+const {Table} = require('console-table-printer')
 
 function getTitle(){
     return chalk.cyanBright(
@@ -16,21 +17,11 @@ function getTitle(){
 }
 
 function getTable(model){
-    
-    const {name_city} = model
-    const {temp} = model
-    const {max} = model
-    const {min} = model
-    
-    return [
-        {
-            'Name': name_city,
-            'Temp': temp,
-            'Max': max,
-            'Min': min
-        }
-    ]
+    const table = new Table()
+    table.addRows(model)
+    return table
 }
+
 
 function getAction(){
     return inquirer.prompt([
@@ -81,10 +72,18 @@ function Action(action, model){
     }
 }
 
+function view(model){
+    return {
+        title: getTitle(),
+        table: getTable(model)
+    }
+}
+
+/*
 const {printTable} = require('console-table-printer')
 const {initModel} = require('./model')
 
-/*
+
 action = getAction()
 act = Action(action, initModel)
 console.log(action)
@@ -94,7 +93,11 @@ module.exports = {
     getTitle,
     getTable,
     getAction,
-    Action
+    Action,
+    view
 }
+
+/*
 console.log(getTitle())
 printTable(getTable(initModel))
+*/
