@@ -61,7 +61,7 @@ function Action(action, model){
             {
                 type: 'list',
                 message: 'Choose City:',
-                name: 'update',
+                name: 'city',
                 choices: name_city,
             }
         ])
@@ -72,7 +72,7 @@ function Action(action, model){
             {
                 type: 'list',
                 message: 'Choose City:',
-                name: 'delete',
+                name: 'city',
                 choices: name_city,
 
 
