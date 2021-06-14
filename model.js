@@ -1,5 +1,5 @@
 initModel = {
-    name_city: [],
+    cities: [],
 }
 
 module.exports = {
