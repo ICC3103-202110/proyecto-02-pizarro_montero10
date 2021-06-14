@@ -51,7 +51,7 @@ function Action(action, model){
             {
                 type: 'input',
                 message: 'Location?',
-                name: 'location',
+                name: 'city',
             }
         ])
     }
