@@ -17,13 +17,14 @@ function getTitle(){
 }
 
 function getTable(model){
-    const table = new Table()
+    const table = new Table
     table.addRows(model)
     return table
 }
 
 
-function getAction(){
+function getAction(model){
+    const{names} = model
     return inquirer.prompt([
             {
                 type: 'list',
@@ -31,73 +32,32 @@ function getAction(){
                 name: 'action',
                 choices: ['Add City', 'Update City', 'Delete City']
 
-            }
-        ])
-}
-
-function Action(action, model){
-    const {name_city} = model 
-    if (action === 'Add City'){
-        return inquirer.prompt([
+            },
             {
                 type: 'input',
                 message: 'Location?',
-                name: 'city',
-            }
-        ])
-    }
-
-    else if (action === 'Update City'){
-        return inquirer.prompt([
+                name: 'name_city',
+                when: (answers) => answers.action === 'Add City'
+            },
             {
                 type: 'list',
                 message: 'Choose City:',
-                name: 'city',
-                choices: name_city,
-            }
-        ])
-    }
-
-    else if (action === 'Delete City'){
-        return inquierer.prompt([
+                name: 'name_city',
+                choices: names,
+                when: (answers) => answers.action === 'Update City'
+            },
             {
                 type: 'list',
                 message: 'Choose City:',
-                name: 'city',
-                choices: name_city,
-
-
+                name: 'name_city',
+                choices: names,
+                when: (answers) => answers.action === 'Delete City'
             }
         ])
-    }
 }
-
-function view(model){
-    return {
-        title: getTitle(),
-        table: getTable(model)
-    }
-}
-
-/*
-const {printTable} = require('console-table-printer')
-const {initModel} = require('./model')
-
-
-action = getAction()
-act = Action(action, initModel)
-console.log(action)
-*/
 
 module.exports = {
     getTitle,
     getTable,
-    getAction,
-    Action,
-    view
+    getAction
 }
-
-/*
-console.log(getTitle())
-printTable(getTable(initModel))
-*/

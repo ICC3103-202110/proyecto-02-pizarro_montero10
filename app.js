@@ -1,22 +1,20 @@
-const {view, Action} = require('./view')
-const {printTable} = require('console-table-printer')
+const {getTitle, getTable, getAction} = require('./view')
+const {update} =  require('./update')
 
-async function app(state, update, view){
+async function app(model){
     while (true){
-        const {model, currentView} = state
-        const {title, table} = currentView
+        const title = getTitle()
+        const table = getTable(model.cities)
         console.clear()
         console.log(title)
-        printTable(table)
-        const input = await getAction()
-        const city = await Action(input, model)
+        table.printTable()
+
         
-        const updatedModel = update(input, city, model)
-        state = {
-            ...state,
-            model: updatedModel,
-            currentView: view(updatedModel)
-        }
+        const {action, name_city} = await getAction(model)
+
+        const updatedModel = update(action, name_city, model)
+        model = updatedModel
+        
     }
 }
 
