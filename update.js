@@ -12,7 +12,9 @@ function addCity(name_city, model){
 }
 
 function updateCity(name_city, model){
-    
+    city = {name: name_city, temp:0, max:0, min:0}
+    model.push(city)
+    return model 
 }
 
 function deleteCity(name_city, model){
