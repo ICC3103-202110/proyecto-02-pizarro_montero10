@@ -1,8 +1,8 @@
 const axios = require('axios');
 
-function api(location){
-  
-}
+//key: e09385b1e29bdb7b60e31c485bb3f639
+//api.openweathermap.org/data/2.5/weather?q={city name}&units=metric&appid={API key}
+
 
 
 function addCity(name_city, model){

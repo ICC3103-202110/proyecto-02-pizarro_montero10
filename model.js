@@ -1,5 +1,5 @@
 initModel = {
-cities: [],
+    cities: [],
     names: []
 }
 
