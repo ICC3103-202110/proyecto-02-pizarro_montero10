@@ -9,7 +9,7 @@ function api(location){
         const main = response.data.main
         console.log(main)
         return main
-    }).catch(error => console.log("Error"));
+    }).catch(error => console.log(console.error()))
     return r
 }
 
