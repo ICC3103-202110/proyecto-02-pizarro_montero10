@@ -7,6 +7,7 @@ function api(location){
     const r = axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}&units=metric`)
     .then(response => {
         const main = response.data.main
+        console.log(main)
         return main
     }).catch(error => console.log("Error"));
     return r
@@ -19,12 +20,12 @@ async function app(model){
         console.clear()
         console.log(title)
         table.printTable()
-
-        const data = await api('Santiago')
-        console.log(data)
+       
         const {action, name_city} = await getAction(model)
 
-        const updatedModel = update(action, name_city, model)
+        const data = await api(name_city)
+
+        const updatedModel = update(action, name_city, model, data)
         model = updatedModel
         
     }
