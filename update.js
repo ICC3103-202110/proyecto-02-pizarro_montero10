@@ -10,11 +10,15 @@ function addCity(name_city, model, data){
 }
 
 function updateCity(name_city, model, data){
-    console.log('Update')
+    const temp_model = model
+
+    return temp_model
 }
 
 function deleteCity(name_city, model, data){
-    console.log('Delete')
+    const temp_model = model
+
+    return temp_model
 }
 
 
