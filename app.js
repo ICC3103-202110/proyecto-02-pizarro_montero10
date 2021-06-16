@@ -1,17 +1,15 @@
 const {getTitle, getTable, getAction} = require('./view')
 const {update} =  require('./update')
-const axios = require('axios');
+const axios = require('axios').default
 
-async function api(location){
+function api(location){
     const key = 'e09385b1e29bdb7b60e31c485bb3f639'
-    axios
-    .get(`api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}&units=metric`)
+    const r = axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}&units=metric`)
     .then(response => {
-        // Assign vars to response data
-        const temperature = response.data.main.temp;
-
-        console.log(response)
-    }).catch(error => console.log("Error", error));
+        const main = response.data.main
+        return main
+    }).catch(error => console.log("Error"));
+    return r
 }
 
 async function app(model){
@@ -22,7 +20,8 @@ async function app(model){
         console.log(title)
         table.printTable()
 
-        await api('Santiago')
+        const data = await api('Santiago')
+        console.log(data)
         const {action, name_city} = await getAction(model)
 
         const updatedModel = update(action, name_city, model)
