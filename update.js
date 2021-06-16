@@ -1,4 +1,3 @@
-
 function addCity(name_city, model, data){
     const {temp, temp_max, temp_min} = data
     city = {name: name_city, temp:temp, max:temp_max, min:temp_min}
@@ -10,11 +9,11 @@ function addCity(name_city, model, data){
     return temp_model    
 }
 
-function updateCity(name_city, model){
+function updateCity(name_city, model, data){
     
 }
 
-function deleteCity(name_city, model){
+function deleteCity(name_city, model, data){
     
 }
 
