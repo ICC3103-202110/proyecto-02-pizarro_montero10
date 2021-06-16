@@ -10,11 +10,11 @@ function addCity(name_city, model, data){
 }
 
 function updateCity(name_city, model, data){
-    
+    console.log('Update')
 }
 
 function deleteCity(name_city, model, data){
-    
+    console.log('Delete')
 }
 
 
