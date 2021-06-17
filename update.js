@@ -10,15 +10,31 @@ function addCity(name_city, model, data){
 }
 
 function updateCity(name_city, model, data){
+    const {cities,names} = model
+    const index = names.indexOf(name_city)
+    cities.splice(index,1)
+    names.splice(index,1)
+
+    const {temp, temp_max, temp_min} = data
+    city = {name: name_city, temp:temp, max:temp_max, min:temp_min}
+
     const temp_model = model
 
+    temp_model.cities.push(city)
+    temp_model.names.push(name_city)
     return temp_model
 }
 
 function deleteCity(name_city, model, data){
-    const temp_model = model
-
-    return temp_model
+    const {cities,names} = model
+    const index = names.indexOf(name_city)
+    cities.splice(index,1)
+    names.splice(index,1)
+    return {
+        ... model,
+        cities :cities,
+        names : names
+    }  
 }
 
 

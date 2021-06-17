@@ -17,15 +17,22 @@ async function app(model){
     while (true){
         const title = getTitle()
         const table = getTable(model.cities)
+        const {cities} = model
         console.clear()
-        console.log(title)
-        table.printTable()
+        if (cities.length == 0) {
+            console.log(title)
+            console.log('No cities')
+        }
+        else {
+            console.log(title)
+            table.printTable()
+        }
        
         const {action, name_city} = await getAction(model)
 
         const data = await api(name_city)
 
-        const updatedModel = update(action, name_city, model, data)
+        const updatedModel = await update(action, name_city, model, data)
         model = updatedModel
         
     }
