@@ -25,7 +25,7 @@ function updateCity(name_city, model, data){
     return temp_model
 }
 
-function deleteCity(name_city, model, data){
+function deleteCity(name_city, model){
     const {cities,names} = model
     const index = names.indexOf(name_city)
     cities.splice(index,1)
@@ -48,7 +48,7 @@ function update(action, name_city, model, data){
     }
 
     else if (action === 'Delete City'){
-        return deleteCity(name_city, model, data)
+        return deleteCity(name_city, model)
     }
 }
 

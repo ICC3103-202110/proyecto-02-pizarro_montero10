@@ -32,7 +32,7 @@ async function app(model){
 
         const data = await api(name_city)
 
-        const updatedModel = await update(action, name_city, model, data)
+        const updatedModel = update(action, name_city, model, data)
         model = updatedModel
         
     }
